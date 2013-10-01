@@ -1,6 +1,6 @@
-(* See http://hackage.haskell.org/package/dlist-0.5/src/Data/DList.hs *)
-
 type 'a t = ('a list -> 'a list)
+
+(* Construction *)
 
 let to_list dlist =
   dlist []
@@ -15,6 +15,33 @@ let concat dlst1 dlst2 =
 
 let empty () =
   of_list []
+
+(* Basic functions *)
+
+let rev dlst =
+  of_list (List.rev (to_list dlst))
+
+let hd dlst =
+  match to_list dlst with
+  | elem :: _ ->
+    Some elem
+  | [] ->
+    None
+
+let hd_exn dlst =
+  List.hd (to_list dlst)
+
+let tl dlst =
+  match to_list dlst with
+  | _ :: tail ->
+    Some (of_list tail)
+  | [] ->
+    None
+
+let tl_exn dlst =
+  of_list (List.tl (to_list dlst))
+
+(* Reduction *)
 
 let fold dlst ~init ~f =
   let rec fold_impl lst acc =
