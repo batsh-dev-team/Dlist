@@ -43,6 +43,7 @@ clean: $(SETUP)
 
 distclean: $(SETUP)
 	./$(SETUP) -distclean $(DISTCLEANFLAGS)
+	rm -f $(SETUP)
 
 configure: $(SETUP)
 	./$(SETUP) -configure $(CONFIGUREFLAGS)
