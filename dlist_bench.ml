@@ -27,7 +27,7 @@ let dlist_bench ~num_lists ~num_elems_in_list =
     if i <= 0 then
       acc
     else
-      let dlst = Dlist.from_list (random_int_list num_elems_in_list) in
+      let dlst = Dlist.of_list (random_int_list num_elems_in_list) in
       concat (i - 1) (Dlist.concat acc dlst)
   in
   let lst = Dlist.to_list (concat num_lists (Dlist.empty ())) in
