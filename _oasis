@@ -1,0 +1,41 @@
+OASISFormat:          0.3
+OCamlVersion:         >= 4.00.1
+Name:                 Dlist
+Version:              0.0.1
+Synopsis:             A pure functional list-like data structure supporting O(1) concatenation.
+Authors:              BYVoid <byvoid@byvoid.com>
+Copyrights:           (C) 2013 Carbo Kuo <byvoid@byvoid.com>
+Maintainers:          BYVoid <byvoid@byvoid.com>
+License:              BSD3
+Homepage:             https://github.com/BYVoid/Batsh
+Plugins:              StdFiles (0.3), DevFiles (0.3), META (0.3)
+XStdFilesAUTHORS:     false
+XStdFilesREADME:      false
+BuildTools:           ocamlbuild
+
+Library dlist
+  Path:               .
+  Modules:            Dlist
+
+Executable bench
+  Path:               .
+  MainIs:             dlist_bench.ml
+  Build$:             flag(tests)
+  Install:            false
+  BuildDepends:       dlist, threads, core, core_bench
+
+Executable test
+  Path:               .
+  MainIs:             dlist_test.ml
+  Build$:             flag(tests)
+  Install:            false
+  BuildDepends:       dlist, ounit, threads, core
+
+Test unit_test
+  Run$:               flag(tests)
+  Command:            $test
+  WorkingDirectory:   .
+
+SourceRepository Dlist
+  Type:               git
+  Location:           https://github.com/BYVoid/Dlist.git

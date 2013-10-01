@@ -1,0 +1,8 @@
+(* OASIS_START *)
+(* DO NOT EDIT (digest: 73f16a23bced5464dd068c2db1aca71a) *)
+Authors of Dlist
+BYVoid <byvoid@byvoid.com>
+
+Current maintainers of Dlist
+BYVoid <byvoid@byvoid.com>
+(* OASIS_STOP *)
