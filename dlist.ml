@@ -45,6 +45,9 @@ let empty () =
 
 (* Basic functions *)
 
+let length dlst =
+  List.length (to_list dlst)
+
 let rev dlst =
   fun tail ->
     List.rev (dlst tail)

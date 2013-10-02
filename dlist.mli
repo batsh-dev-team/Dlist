@@ -56,36 +56,40 @@ val concat : 'a t list -> 'a t
 
 (* Basic functions *)
 
+(** Return the length of the given Dlist.
+	O(N). *)
+val length : 'a t -> int
+
 (** Reverse a Dlist.
 	O(1) (lazy evaluation). *)
 val rev : 'a t -> 'a t
 
-(** Return the first element of the given list.
+(** Return the first element of the given Dlist.
 	O(N). *)
 val hd : 'a t -> 'a option
 
-(** Return the first element of the given list.
-	Raise Failure "hd" if the list is empty.
+(** Return the first element of the given Dlist.
+	Raise Failure "hd" if the Dlist is empty.
 	O(N). *)
 val hd_exn : 'a t -> 'a
 
-(** Return the given list without its first element.
+(** Return the given Dlist without its first element.
 	O(N). *)
 val tl : 'a t -> 'a t option
 
-(** Return the given list without its first element.
-	Raise Failure "tl" if the list is empty.
+(** Return the given Dlist without its first element.
+	Raise Failure "tl" if the Dlist is empty.
 	O(N). *)
 val tl_exn : 'a t -> 'a t
 
-(** Return the n-th element of the given list.
-	The first element (head of the list) is at position 0.
+(** Return the n-th element of the given Dlist.
+	The first element (head of the Dlist) is at position 0.
 	O(N). *)
 val nth : 'a t -> int -> 'a option
 
-(** Return the n-th element of the given list.
-	The first element (head of the list) is at position 0.
-	Raise Failure "nth" if the list is too short.
+(** Return the n-th element of the given Dlist.
+	The first element (head of the Dlist) is at position 0.
+	Raise Failure "nth" if the Dlist is too short.
 	Raise Invalid_argument "List.nth" if n is negative.
 	O(N). *)
 val nth_exn : 'a t -> int -> 'a
