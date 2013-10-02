@@ -17,6 +17,15 @@ let dlst = Dlist.append dlst1 dlst2 in (* O(1) *)
 let lst = Dlist.to_list dlst
 ```
 
+## Benchmark
+
+Generate 100 lists where every list contains 100 random integers, and concatenate them with `@` for list and `Dlist.append` for Dlist.
+
+	  Name       Time/Run   Speedup  
+	 ------- ------------- --------- 
+	  list    112_341_988      1.00  
+	  dlist    12_571_208      8.94 
+
 ## License
 
 [BSD3](http://opensource.org/licenses/BSD-3-Clause)
