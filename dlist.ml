@@ -46,7 +46,8 @@ let empty () =
 (* Basic functions *)
 
 let rev dlst =
-  of_list (List.rev (to_list dlst))
+  fun tail ->
+    List.rev (dlst tail)
 
 let hd dlst =
   match to_list dlst with

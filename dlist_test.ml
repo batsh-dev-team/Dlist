@@ -58,11 +58,19 @@ let test_map _ =
   let mapped_lst = List.map f lst in
   assert_equal mapped_lst (Dlist.to_list mapped_dlst)
 
+let test_rev _ =
+  let lst = [1;2;3] in
+  let dlst = Dlist.of_list lst in
+  let reversed_dlst = Dlist.rev dlst in
+  let reversed_lst = List.rev lst in
+  assert_equal reversed_lst (Dlist.to_list reversed_dlst)
+
 let test_cases = "Dlist Unit Tests" >::: [
     "Empty" >:: test_empty;
     "Append" >:: test_append;
     "Concat" >:: test_concat;
     "Map" >:: test_map;
+    "Rev" >:: test_rev;
   ]
 
 let _ =
