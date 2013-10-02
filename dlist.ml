@@ -9,7 +9,7 @@ let of_list lst =
   fun tail ->
     lst @ tail
 
-let concat dlst1 dlst2 =
+let append dlst1 dlst2 =
   fun tail ->
     dlst1 (dlst2 tail)
 
@@ -41,6 +41,22 @@ let tl dlst =
 let tl_exn dlst =
   of_list (List.tl (to_list dlst))
 
+let nth dlst n =
+  let rec nth_impl lst i =
+    match lst with
+    | head :: tail ->
+      if i = 0 then
+        Some head
+      else
+        nth_impl tail (i - 1)
+    | [] ->
+      None
+  in
+  nth_impl (to_list dlst) n
+
+let nth_exn dlst n =
+  List.nth (to_list dlst) n
+
 (* Reduction *)
 
 let fold dlst ~init ~f =
@@ -53,21 +69,21 @@ let fold dlst ~init ~f =
 
 let fold_left = fold
 
-let fold_right lst ~init ~f =
+let fold_right dlst ~init ~f =
   let rec fold_impl lst acc =
     match lst with
     | [] -> acc
     | elem :: tail -> fold_impl tail (f elem acc)
   in
-  fold_impl (List.rev (to_list lst)) init
+  fold_impl (List.rev (to_list dlst)) init
 
-let foldi lst ~init ~f =
+let foldi dlst ~init ~f =
   let rec fold_impl i lst acc =
     match lst with
     | [] -> acc
     | elem :: tail -> fold_impl (i + 1) tail (f i acc elem)
   in
-  fold_impl 0 (to_list lst) init
+  fold_impl 0 (to_list dlst) init
 
 let map dlst ~f =
   let mapped_lst = fold dlst ~init: []
@@ -89,3 +105,6 @@ let iteri dlst ~f =
 
 let of_dlist dlst =
   map dlst ~f: (fun elem -> elem)
+
+let concat dlsts =
+  List.fold_left (fun acc dlst -> append acc dlst) (empty ()) dlsts

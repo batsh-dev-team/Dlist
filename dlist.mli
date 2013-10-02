@@ -6,7 +6,8 @@ val to_list : 'a t -> 'a list
 val of_list : 'a list -> 'a t
 val of_dlist : 'a t -> 'a t
 val empty : unit -> 'a t
-val concat : 'a t -> 'a t -> 'a t
+val append : 'a t -> 'a t -> 'a t
+val concat : 'a t list -> 'a t
 
 (* Basic functions *)
 
@@ -15,6 +16,8 @@ val hd : 'a t -> 'a option
 val hd_exn : 'a t -> 'a
 val tl : 'a t -> 'a t option
 val tl_exn : 'a t -> 'a t
+val nth : 'a t -> int -> 'a option
+val nth_exn : 'a t -> int -> 'a
 
 (* Reduction *)
 
