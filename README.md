@@ -1,7 +1,22 @@
 # OCaml Difference List
 
-A pure functional list-like data structure supporting O(1) concatenation. This is particularly useful for efficient list construction from many lists. It is an immutable data type without any side effect.
+A **pure functional** list-like data structure supporting O(1) concatenation. This is particularly useful for efficient list construction from many lists. It is an immutable data type containing no side effect.
 
-Inspired by [Haskell dlist](http://hackage.haskell.org/package/dlist-0.5).
+The idea is inspired by Haskell [Data.Dlist](http://hackage.haskell.org/package/dlist-0.5) and the APIs are influenced by [Core.List](https://ocaml.janestreet.com/ocaml-core/latest/doc/core_kernel/Core_list.html).
 
-License [BSD3](http://opensource.org/licenses/BSD-3-Clause)
+## Documentation
+
+See http://byvoid.github.io/Dlist/Dlist.html
+
+## Example
+
+```ocaml
+let dlst1 = Dlist.of_list [1;2;3;4;5] in
+let dlst2 = Dlist.of_list [6;7;8;9;10] in
+let dlst = Dlist.append dlst1 dlst2 in (* O(1) *)
+let lst = Dlist.to_list dlst
+```
+
+## License
+
+[BSD3](http://opensource.org/licenses/BSD-3-Clause)
