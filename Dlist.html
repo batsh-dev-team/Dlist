@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dlist" rel="Chapter" href="Dlist.html"><title>Dlist</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Dlist.html">Dlist</a></h1>
+
+<pre><span class="keyword">module</span> Dlist: <code class="code">sig</code> <a href="Dlist.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Difference list: a list-like data structure with O(1) concatenation.<br>
+</div>
+<hr width="100%">
+<br>
+Every method listed below is <b>tail recursive</b>, so you can use them safely.
+The APIs are inspaired by <a href=" https://ocaml.janestreet.com/ocaml-core/latest/doc/core_kernel/Core_list.html">
+Core.List</a>.<br>
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> </pre>
+<div class="info ">
+The abstract type of Dlist.<br>
+</div>
+
+
+<pre><span id="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a list</code></pre><div class="info ">
+Convert a Dlist to an OCaml list. O(N), where N is the number of elements.<br>
+</div>
+
+<pre><span id="VALof_list"><span class="keyword">val</span> of_list</span> : <code class="type">'a list -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Convert an OCaml list to a Dlist. O(N).<br>
+</div>
+
+<pre><span id="VALof_dlist"><span class="keyword">val</span> of_dlist</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Convert a Dlist to a Dlist by reconstruction. O(N) (strict evaluation).<br>
+</div>
+
+<pre><span id="VALempty"><span class="keyword">val</span> empty</span> : <code class="type">unit -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Return an empty Dlist. O(1).<br>
+</div>
+
+<pre><span id="VALappend"><span class="keyword">val</span> append</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Concatenate two Dlists. O(1).<br>
+</div>
+
+<pre><span id="VALconcat"><span class="keyword">val</span> concat</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> list -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Concatenate a list of Dlists. O(M), where M is the number of Dlists.<br>
+</div>
+
+<pre><span id="VALrev"><span class="keyword">val</span> rev</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Reverse a Dlist.
+	O(1) (lazy evaluation).<br>
+</div>
+
+<pre><span id="VALhd"><span class="keyword">val</span> hd</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a option</code></pre><div class="info ">
+Return the first element of the given list.
+	O(N).<br>
+</div>
+
+<pre><span id="VALhd_exn"><span class="keyword">val</span> hd_exn</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a</code></pre><div class="info ">
+Return the first element of the given list.
+	Raise Failure "hd" if the list is empty.
+	O(N).<br>
+</div>
+
+<pre><span id="VALtl"><span class="keyword">val</span> tl</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a> option</code></pre><div class="info ">
+Return the given list without its first element.
+	O(N).<br>
+</div>
+
+<pre><span id="VALtl_exn"><span class="keyword">val</span> tl_exn</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Return the given list without its first element.
+	Raise Failure "tl" if the list is empty.
+	O(N).<br>
+</div>
+
+<pre><span id="VALnth"><span class="keyword">val</span> nth</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> int -> 'a option</code></pre><div class="info ">
+Return the n-th element of the given list.
+	The first element (head of the list) is at position 0.
+	O(N).<br>
+</div>
+
+<pre><span id="VALnth_exn"><span class="keyword">val</span> nth_exn</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> int -> 'a</code></pre><div class="info ">
+Return the n-th element of the given list.
+	The first element (head of the list) is at position 0.
+	Raise Failure "nth" if the list is too short.
+	Raise Invalid_argument "List.nth" if n is negative.
+	O(N).<br>
+</div>
+
+<pre><span id="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> init:'acc -> f:('acc -> 'a -> 'acc) -> 'acc</code></pre><div class="info ">
+Fold the Dlist. O(N).<br>
+</div>
+
+<pre><span id="VALfold_left"><span class="keyword">val</span> fold_left</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> init:'acc -> f:('acc -> 'a -> 'acc) -> 'acc</code></pre><div class="info ">
+Fold the Dlist from left. O(N).<br>
+</div>
+
+<pre><span id="VALfold_right"><span class="keyword">val</span> fold_right</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> init:'acc -> f:('a -> 'acc -> 'acc) -> 'acc</code></pre><div class="info ">
+Fold the Dlist from right. O(N).<br>
+</div>
+
+<pre><span id="VALfoldi"><span class="keyword">val</span> foldi</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> init:'acc -> f:(int -> 'acc -> 'a -> 'acc) -> 'acc</code></pre><div class="info ">
+Fold the Dlist with index. O(N).<br>
+</div>
+
+<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> f:('a -> 'b) -> 'b <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Map the Dlist. O(N).<br>
+</div>
+
+<pre><span id="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> f:(int -> 'a -> 'b) -> 'b <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Map the Dlist with index. O(N).<br>
+</div>
+
+<pre><span id="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> f:('a -> unit) -> unit</code></pre><div class="info ">
+Iterate the Dlist. O(N).<br>
+</div>
+
+<pre><span id="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> f:(int -> 'a -> unit) -> unit</code></pre><div class="info ">
+Iterate the Dlist with index. O(N).<br>
+</div>
+</body></html>
