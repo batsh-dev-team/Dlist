@@ -4,6 +4,16 @@ A **pure functional** list-like data structure supporting O(1) concatenation. Th
 
 The idea is inspired by Haskell [Data.Dlist](http://hackage.haskell.org/package/dlist-0.5) and the APIs are influenced by [Core.List](https://ocaml.janestreet.com/ocaml-core/latest/doc/core_kernel/Core_list.html).
 
+## Installation
+
+Using [OPAM](http://opam.ocamlpro.com/pkg/dlist/0.0.1/):
+
+    opam install dlist
+
+From source:
+
+    make install
+
 ## Documentation
 
 See http://byvoid.github.io/Dlist/Dlist.html
