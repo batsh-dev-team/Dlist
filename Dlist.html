@@ -54,43 +54,48 @@ Concatenate two Dlists. O(1).<br>
 Concatenate a list of Dlists. O(M), where M is the number of Dlists.<br>
 </div>
 
+<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+Return the length of the given Dlist.
+	O(N).<br>
+</div>
+
 <pre><span id="VALrev"><span class="keyword">val</span> rev</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
 Reverse a Dlist.
 	O(1) (lazy evaluation).<br>
 </div>
 
 <pre><span id="VALhd"><span class="keyword">val</span> hd</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a option</code></pre><div class="info ">
-Return the first element of the given list.
+Return the first element of the given Dlist.
 	O(N).<br>
 </div>
 
 <pre><span id="VALhd_exn"><span class="keyword">val</span> hd_exn</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a</code></pre><div class="info ">
-Return the first element of the given list.
-	Raise Failure "hd" if the list is empty.
+Return the first element of the given Dlist.
+	Raise Failure "hd" if the Dlist is empty.
 	O(N).<br>
 </div>
 
 <pre><span id="VALtl"><span class="keyword">val</span> tl</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a> option</code></pre><div class="info ">
-Return the given list without its first element.
+Return the given Dlist without its first element.
 	O(N).<br>
 </div>
 
 <pre><span id="VALtl_exn"><span class="keyword">val</span> tl_exn</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'a <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
-Return the given list without its first element.
-	Raise Failure "tl" if the list is empty.
+Return the given Dlist without its first element.
+	Raise Failure "tl" if the Dlist is empty.
 	O(N).<br>
 </div>
 
 <pre><span id="VALnth"><span class="keyword">val</span> nth</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> int -> 'a option</code></pre><div class="info ">
-Return the n-th element of the given list.
-	The first element (head of the list) is at position 0.
+Return the n-th element of the given Dlist.
+	The first element (head of the Dlist) is at position 0.
 	O(N).<br>
 </div>
 
 <pre><span id="VALnth_exn"><span class="keyword">val</span> nth_exn</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> int -> 'a</code></pre><div class="info ">
-Return the n-th element of the given list.
-	The first element (head of the list) is at position 0.
-	Raise Failure "nth" if the list is too short.
+Return the n-th element of the given Dlist.
+	The first element (head of the Dlist) is at position 0.
+	Raise Failure "nth" if the Dlist is too short.
 	Raise Invalid_argument "List.nth" if n is negative.
 	O(N).<br>
 </div>
