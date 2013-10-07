@@ -6,7 +6,7 @@ The idea is inspired by Haskell [Data.Dlist](http://hackage.haskell.org/package/
 
 ## Installation
 
-Using [OPAM](http://opam.ocamlpro.com/pkg/dlist/0.0.1/):
+Using [OPAM](http://opam.ocamlpro.com/pkg/dlist/0.0.2/):
 
     opam install dlist
 

@@ -1,6 +1,6 @@
 # OASIS_START
-# DO NOT EDIT (digest: c198a007a21ff239e21bf498f26f69b5)
-version = "0.0.1"
+# DO NOT EDIT (digest: 21377502ef0e2abda843ad35db2c21d7)
+version = "0.0.2"
 description =
 "A pure functional list-like data structure supporting O(1) concatenation."
 archive(byte) = "dlist.cma"

@@ -1,7 +1,7 @@
 OASISFormat:          0.3
 OCamlVersion:         >= 4.00.1
 Name:                 Dlist
-Version:              0.0.1
+Version:              0.0.2
 Synopsis:             A pure functional list-like data structure supporting O(1) concatenation.
 Authors:              BYVoid <byvoid@byvoid.com>
 Copyrights:           (C) 2013 Carbo Kuo <byvoid@byvoid.com>
