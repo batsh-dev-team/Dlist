@@ -2,17 +2,20 @@
 
 A **purely functional** list-like data structure supporting O(1) concatenation. This is particularly useful for efficient list construction from many lists. It is an immutable data type containing no side effect.
 
+This data structure is very useful when your algorithm requires lots of concatenations of many lists.
+
 The idea is inspired by Haskell [Data.Dlist](http://hackage.haskell.org/package/dlist-0.5) and the APIs are influenced by [Core.List](https://ocaml.janestreet.com/ocaml-core/latest/doc/core_kernel/Core_list.html).
 
 ## Installation
 
-Using [OPAM](http://opam.ocamlpro.com/pkg/dlist/0.0.2/):
+Using [OPAM](http://opam.ocaml.org/pkg/dlist/0.0.3/):
 
     opam install dlist
 
 From source:
 
-    make install
+    opam install ocp-build ounit core_bench
+    ocp-build build
 
 ## Documentation
 

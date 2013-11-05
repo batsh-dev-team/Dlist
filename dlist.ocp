@@ -1,0 +1,28 @@
+authors = ["Carbo Kuo <byvoid@byvoid.com>"]
+license = ["BSD3"]
+version = "0.0.3"
+
+begin library "dlist"
+  files = ["dlist.ml"]
+end
+
+begin program "dlist-bench"
+  files = ["dlist_bench.ml"]
+  requires = ["dlist" "core_bench" "threads"]
+  link = ["-thread"]
+  comp = ["-thread"]
+  has_byte = false
+  install = false
+end
+
+begin test "dlist-test"
+  files = ["dlist_test.ml"]
+  requires = ["dlist" "oUnit"]
+end
+
+begin library "threads"
+  installed = true
+  dirname = ["%{OCAMLLIB}%/threads"]
+  has_byte = false
+  byte += ["-custom"]
+end

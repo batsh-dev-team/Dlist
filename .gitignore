@@ -1,6 +1,3 @@
-_build
-*.byte
-*.native
-setup.log
-setup.data
-setup-dev
+_obuild
+ocp-build.root*
+oUnit-anon.cache
