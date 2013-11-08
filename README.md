@@ -1,8 +1,10 @@
 # OCaml Difference List
 
-A **purely functional** list-like data structure supporting O(1) concatenation. This is particularly useful for efficient list construction from many lists. It is an immutable data type containing no side effect.
+Dlist (Difference List) is a **purely functional** list-like data structure supporting O(1) concatenation.
+This is particularly useful for efficient list construction from many lists.
+Dlist is a lazy immutable data type with no side effect.
 
-This data structure is very useful when your algorithm requires lots of concatenations of many lists.
+This data structure is very handy when your algorithm requires lots of concatenations from many lists.
 
 The idea is inspired by Haskell [Data.Dlist](http://hackage.haskell.org/package/dlist-0.5) and the APIs are influenced by [Core.List](https://ocaml.janestreet.com/ocaml-core/latest/doc/core_kernel/Core_list.html).
 
@@ -16,10 +18,11 @@ From source:
 
     opam install ocp-build ounit core_bench
     ocp-build build
+    ocp-build install
 
 ## Documentation
 
-See http://byvoid.github.io/Dlist/Dlist.html
+http://byvoid.github.io/Dlist/Dlist.html
 
 ## Example
 
@@ -29,6 +32,30 @@ let dlst2 = Dlist.of_list [6;7;8;9;10] in
 let dlst = Dlist.append dlst1 dlst2 in (* O(1) *)
 let lst = Dlist.to_list dlst
 ```
+
+## Time complexity
+
+O(1) operations:
+
+* Dlist.empty
+* Dlist.append
+* Dlist.concat
+* Dlist.rev
+* Dlist.map
+* Dlist.mapi
+* Dlist.map2
+
+O(N) operations:
+
+* Dlist.to_list
+* Dlist.of_list
+* Dlist.of_dlist
+* Dlist.length
+* Dlist.hd
+* Dlist.tl
+* Dlist.nth
+* Dlist.fold
+* Dlist.iter
 
 ## Benchmark
 

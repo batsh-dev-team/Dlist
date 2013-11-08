@@ -1,6 +1,6 @@
 authors = ["Carbo Kuo <byvoid@byvoid.com>"]
 license = ["BSD3"]
-version = "0.0.3"
+version = "0.1.0"
 
 begin library "dlist"
   files = ["dlist.ml"]
