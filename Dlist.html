@@ -117,11 +117,17 @@ Fold the Dlist with index. O(N).<br>
 </div>
 
 <pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> f:('a -> 'b) -> 'b <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
-Map the Dlist. O(N).<br>
+Map the Dlist. O(1) (lazy evaluation).<br>
 </div>
 
 <pre><span id="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> f:(int -> 'a -> 'b) -> 'b <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
-Map the Dlist with index. O(N).<br>
+Map the Dlist with index. O(1) (lazy evaluation).<br>
+</div>
+
+<pre><span id="VALmap2"><span class="keyword">val</span> map2</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> 'b <a href="Dlist.html#TYPEt">t</a> -> f:('a -> 'b -> 'c) -> 'c <a href="Dlist.html#TYPEt">t</a></code></pre><div class="info ">
+Map 2 Dlists. O(1) (lazy evaluation).
+	Make sure that the 2 Dlists have the same length,
+	or excpetion will be raised when converting to list.<br>
 </div>
 
 <pre><span id="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">'a <a href="Dlist.html#TYPEt">t</a> -> f:('a -> unit) -> unit</code></pre><div class="info ">
