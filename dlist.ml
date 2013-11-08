@@ -117,16 +117,14 @@ let foldi dlst ~init ~f =
   fold_impl 0 (to_list dlst) init
 
 let map dlst ~f =
-  let mapped_lst = fold dlst ~init: []
-      ~f: (fun acc elem -> (f elem) :: acc)
-  in
-  of_list (List.rev mapped_lst)
+  fun tail ->
+    let lst = to_list dlst in
+    (List.map f lst) @ tail
 
 let mapi dlst ~f =
-  let mapped_lst = foldi dlst ~init: []
-      ~f: (fun i acc elem -> (f i elem) :: acc)
-  in
-  of_list (List.rev mapped_lst)
+  fun tail ->
+    let lst = to_list dlst in
+    (List.mapi f lst) @ tail
 
 let iter dlst ~f =
   fold dlst ~init: () ~f: (fun _ elem -> f elem)

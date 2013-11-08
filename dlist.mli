@@ -108,10 +108,10 @@ val fold_right : 'a t -> init:'acc -> f:('a -> 'acc -> 'acc) -> 'acc
 (** Fold the Dlist with index. O(N). *)
 val foldi : 'a t -> init:'acc -> f:(int -> 'acc -> 'a -> 'acc) -> 'acc
 
-(** Map the Dlist. O(N). *)
+(** Map the Dlist. O(1) (lazy evaluation). *)
 val map : 'a t -> f:('a -> 'b) -> 'b t
 
-(** Map the Dlist with index. O(N). *)
+(** Map the Dlist with index. O(1) (lazy evaluation). *)
 val mapi : 'a t -> f:(int -> 'a -> 'b) -> 'b t
 
 (** Iterate the Dlist. O(N). *)
