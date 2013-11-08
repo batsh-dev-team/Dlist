@@ -126,6 +126,12 @@ let mapi dlst ~f =
     let lst = to_list dlst in
     (List.mapi f lst) @ tail
 
+let map2 dlst1 dlst2 ~f =
+  fun tail ->
+    let lst1 = to_list dlst1 in
+    let lst2 = to_list dlst2 in
+    (List.map2 f lst1 lst2) @ tail
+
 let iter dlst ~f =
   fold dlst ~init: () ~f: (fun _ elem -> f elem)
 

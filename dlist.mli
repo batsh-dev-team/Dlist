@@ -114,6 +114,12 @@ val map : 'a t -> f:('a -> 'b) -> 'b t
 (** Map the Dlist with index. O(1) (lazy evaluation). *)
 val mapi : 'a t -> f:(int -> 'a -> 'b) -> 'b t
 
+(** Map 2 Dlists. O(1) (lazy evaluation).
+	Make sure that the 2 Dlists have the same length,
+	or excpetion will be raised when converting to list.
+	*)
+val map2 : 'a t -> 'b t -> f:('a -> 'b -> 'c) -> 'c t
+
 (** Iterate the Dlist. O(N). *)
 val iter : 'a t -> f:('a -> unit) -> unit
 

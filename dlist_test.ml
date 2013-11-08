@@ -58,6 +58,16 @@ let test_map _ =
   let mapped_lst = List.map f lst in
   assert_equal mapped_lst (Dlist.to_list mapped_dlst)
 
+let test_map2 _ =
+  let lst1 = [1;2;3] in
+  let dlst1 = Dlist.of_list lst1 in
+  let lst2 = [4;5;6] in
+  let dlst2 = Dlist.of_list lst2 in
+  let f a b = a * b in
+  let mapped_dlst = Dlist.map2 ~f dlst1 dlst2 in
+  let mapped_lst = List.map2 f lst1 lst2 in
+  assert_equal mapped_lst (Dlist.to_list mapped_dlst)
+
 let test_rev _ =
   let lst = [1;2;3] in
   let dlst = Dlist.of_list lst in
@@ -70,6 +80,7 @@ let test_cases = "Dlist Unit Tests" >::: [
     "Append" >:: test_append;
     "Concat" >:: test_concat;
     "Map" >:: test_map;
+    "Map2" >:: test_map2;
     "Rev" >:: test_rev;
   ]
 
