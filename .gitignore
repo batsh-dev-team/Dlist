@@ -1,3 +1,5 @@
 _obuild
 ocp-build.root*
 oUnit-anon.cache
+_build/
+.merlin
