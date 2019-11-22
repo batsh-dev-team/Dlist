@@ -1,2 +1,5 @@
 (library
- (name dlist))
+ (name dlist)
+ (public_name dlist)
+ (libraries core_kernel)
+ )
